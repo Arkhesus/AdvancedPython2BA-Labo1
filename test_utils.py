@@ -8,15 +8,18 @@ import utils
 class TestUtils(unittest.TestCase):
     def test_fact(self):
         self.assertEqual(utils.fact(3), 6)
-        self.asserEqual(utils.fact(4), 24)
-        pass
+        self.assertEqual(utils.fact(4), 24)
+        self.assertEqual(utils.fact(0), 1)
+        with self.assertRaises(ValueError):
+            utils.fact(-5)
     
     def test_roots(self):
-        self.asserEqual(utils.roots(1,-2,3),(1,0))
-        pass
+        self.assertEqual(utils.roots(4,-4,-24),(3,-2))
+        with self.assertRaises(ValueError):
+           utils.roots(1,0,1)
     
     def test_integrate(self):
-        self.almotsEqual(utils.integrate("x", 3,9),72)
+        self.assertEqual(utils.integrate("x", 3,9),72)
         pass
 
 if __name__ == '__main__':

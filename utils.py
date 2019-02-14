@@ -2,6 +2,7 @@
 # Math library
 # Author: Sébastien Combéfis
 # Version: February 8, 2018
+import math 
 
 def fact(n):
 	"""Computes the factorial of a natural number.
@@ -10,16 +11,33 @@ def fact(n):
 	Post: Returns the factorial of 'n'.
 	Throws: ValueError if n < 0
 	"""
-	pass
+	if n == 0:
+		return 1
+	if n > 0 :
+		return fact(n-1)*n
+	if n < 0 :
+		raise ValueError("Must be positive")
+	
 
 def roots(a, b, c):
 	"""Computes the roots of the ax^2 + bx + x = 0 polynomial.
-	
-	Pre: -
-	Post: Returns a tuple with zero, one or two elements corresponding
-		to the roots of the ax^2 + bx + c polynomial.
+		
+		Pre: -
+		Post: Returns a tuple with zero, one or two elements corresponding
+			to the roots of the ax^2 + bx + c polynomial.
 	"""
-	pass
+	delta = ((b**2) -(4*a*c))
+	
+
+	if delta == 0 :
+		rootzero = -b/(2*a)
+		return(rootzero)
+	if delta < 0 :
+		raise ValueError("Delta doesn't exist")
+	if delta > 0 :
+		rootneg = (-b - math.sqrt(delta))/(2*a)
+		rootpos = (-b + math.sqrt(delta))/(2*a)
+		return(rootpos, rootneg)
 
 def integrate(function, lower, upper):
 	"""Approximates the integral of a fonction between two bounds
