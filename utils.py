@@ -2,7 +2,9 @@
 # Math library
 # Author: Sébastien Combéfis
 # Version: February 8, 2018
-import math 
+import math
+from scipy.integrate import quad
+import scipy.special as special
 
 def fact(n):
 	"""Computes the factorial of a natural number.
@@ -52,9 +54,11 @@ def integrate(function, lower, upper):
 		you'll probably need the 'eval' function to evaluate the function
 		to integrate given as a string.
 	"""
-	pass
+	f = lambda x:function
+	i = integration.quad(f,lower,upper)
+	return i
 
 if __name__ == '__main__':
 	print(fact(5))
-	print(roots(1, 0, 1))
+	print(roots(4,-4,-24))
 	print(integrate('x ** 2 - 1', -1, 1))
