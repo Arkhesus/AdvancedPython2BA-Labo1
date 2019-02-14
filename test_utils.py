@@ -19,7 +19,7 @@ class TestUtils(unittest.TestCase):
            utils.roots(1,0,1)
     
     def test_integrate(self):
-        self.assertEqual(utils.integrate("x", 3,9),72)
+        self.assertAlmostEqual(utils.integrate("x", 0,9),40.5)
         pass
 
 if __name__ == '__main__':

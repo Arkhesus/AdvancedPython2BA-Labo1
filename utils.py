@@ -3,7 +3,7 @@
 # Author: Sébastien Combéfis
 # Version: February 8, 2018
 import math
-from scipy.integrate import quad
+import scipy.integrate as integration
 import scipy.special as special
 
 def fact(n):
@@ -54,9 +54,9 @@ def integrate(function, lower, upper):
 		you'll probably need the 'eval' function to evaluate the function
 		to integrate given as a string.
 	"""
-	f = lambda x:function
-	i = integration.quad(f,lower,upper)
-	return i
+	f = lambda x :eval(function)
+	solution = integration.quad(f, lower, upper)
+	return solution[0] - solution[1]
 
 if __name__ == '__main__':
 	print(fact(5))
